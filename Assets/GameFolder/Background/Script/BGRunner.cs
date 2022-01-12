@@ -5,6 +5,7 @@ using UnityEngine;
 public class BGRunner : MonoBehaviour
 {
     public float timer = 0;
+    public float velocity;
 
 
     // Start is called before the first frame update
@@ -21,7 +22,12 @@ public class BGRunner : MonoBehaviour
     private void FixedUpdate()
     {
         timer += Time.deltaTime;
-        transform.position = new Vector2(transform.position.x - 0.05f, transform.position.y);
+        foreach(Transform child in transform)
+        {
+            child.transform.position = new Vector2(child.transform.position.x - velocity, child.transform.position.y);
+        }
+
+        //transform.position = new Vector2(transform.position.x - velocity, transform.position.y);
     }
 
 }

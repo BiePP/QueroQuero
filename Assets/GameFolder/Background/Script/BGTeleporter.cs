@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class BGTeleporter : MonoBehaviour
 {
-
+    [Tooltip("The original position in Y which every BG will be teleported \"ahead\" when it's time.")]
     public float startingPosition;
 
-    public Transform[] BG;
+    
+    public int stageMoment;
+
+    public Sprite[] BG;
 
     // Start is called before the first frame update
     void Start()
     {
-        //BG[1].transform.position = transform.position + Vector3.right * BG[0].GetComponent<SpriteRenderer>().bounds.size.x;
-        //BG[2].transform.position = transform.position + Vector3.right * BG[1].GetComponent<SpriteRenderer>().bounds.size.x;
-        //BG[3].transform.position = transform.position + Vector3.right * BG[2].GetComponent<SpriteRenderer>().bounds.size.x;
+
     }
 
     // Update is called once per frame
@@ -28,11 +29,31 @@ public class BGTeleporter : MonoBehaviour
         if (collision.CompareTag("BG"))
         {
             collision.transform.position = new Vector2(startingPosition, collision.transform.position.y);
+            switch (stageMoment)
+            {
+                case 1:
+                    collision.GetComponent<SpriteRenderer>().sprite = BG[Random.Range(1, 2)];
+                    break;
+                case 2:
+                    collision.GetComponent<SpriteRenderer>().sprite = BG[Random.Range(2, 3)];
+                    break;
+                case 3:
+                    collision.GetComponent<SpriteRenderer>().sprite = BG[Random.Range(4, 5)];
+                    break;
+                case 4:
+                    collision.GetComponent<SpriteRenderer>().sprite = BG[Random.Range(5, 7)];
+                    break;
+            }
         }
 
         if (collision.CompareTag("Enemy"))
         {
             Destroy(collision.gameObject);
         }
+    }
+
+    void ChangeStageMoment(int stageMoment)
+    {
+        stageMoment = this.stageMoment;
     }
 }

@@ -13,12 +13,17 @@ public class FlappyQueroStageController : MonoBehaviour
     //4- stage win (salgado filho)
     public int stageMoment;
 
+    [Tooltip("Added for allowing control of BG changes through stage moments by the Teleporter.")]
+    public Transform BGTeleporter;
+    BGTeleporter BGTeleporterScript;
+
     public Transform[] enemies;
 
     // Start is called before the first frame update
     void Start()
     {
         stageMoment = 1;
+        BGTeleporterScript = BGTeleporter.GetComponent<BGTeleporter>();
     }
 
     // Update is called once per frame
@@ -29,14 +34,14 @@ public class FlappyQueroStageController : MonoBehaviour
 
         if(stageTimer > 60)
         {
-            stageMoment = 4;
+            ChangeStageMoment(4);
         }
         else if(stageTimer > 40){
-            stageMoment = 3;
+            ChangeStageMoment(3);
         }
         else if(stageTimer > 20)
         {
-            stageMoment = 2;
+            ChangeStageMoment(2);
         }
 
         /*--SPAWNS --*/
@@ -71,6 +76,12 @@ public class FlappyQueroStageController : MonoBehaviour
                 }
                 break;
         }
+    }
+
+    private void ChangeStageMoment(int stageMoment)
+    {
+        this.stageMoment = stageMoment;
+        BGTeleporterScript.stageMoment = this.stageMoment;
     }
 
     private void InstantiateNewEnemy()
