@@ -29,5 +29,10 @@ public class BGTeleporter : MonoBehaviour
         {
             collision.transform.position = new Vector2(startingPosition, collision.transform.position.y);
         }
+
+        if (collision.CompareTag("Enemy"))
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }
