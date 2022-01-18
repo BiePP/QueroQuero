@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 27d45106cd916434fb79a3ca02ca02b8
+guid: 56db997a68762f14b9354b83364ac31e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3778949760644521018
-    second: QueroFlappy-Sheet_0
+      213: 6049637146503128358
+    second: CardealFlappy-Sheet_0
   - first:
-      213: 784503592548007057
-    second: QueroFlappy-Sheet_1
+      213: -6879908525395791597
+    second: CardealFlappy-Sheet_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -121,7 +121,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: QueroFlappy-Sheet_0
+      name: CardealFlappy-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -135,14 +135,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3c934b19c6817430800000000000000
-      internalID: 3778949760644521018
+      spriteID: 625a351bee0a4f350800000000000000
+      internalID: 6049637146503128358
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: QueroFlappy-Sheet_1
+      name: CardealFlappy-Sheet_1
       rect:
         serializedVersion: 2
         x: 32
@@ -156,8 +156,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19c77d66cdd13ea00800000000000000
-      internalID: 784503592548007057
+      spriteID: 3113a90c5a7a580a0800000000000000
+      internalID: -6879908525395791597
       vertices: []
       indices: 
       edges: []

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4901830425621684657}
   - component: {fileID: 4901830425621684656}
   - component: {fileID: 4901830425621684556}
+  - component: {fileID: 7468933383135515826}
   m_Layer: 0
   m_Name: Cardeal
   m_TagString: Enemy
@@ -74,12 +75,12 @@ SpriteRenderer:
   m_SortingLayerID: 756993735
   m_SortingLayer: 3
   m_SortingOrder: 2
-  m_Sprite: {fileID: 3778949760644521018, guid: 629bf73dbd24d3343827a80687342ee5, type: 3}
+  m_Sprite: {fileID: -6879908525395791597, guid: 56db997a68762f14b9354b83364ac31e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.6875, y: 1.125}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -139,3 +140,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &7468933383135515826
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4901830425621684659}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6a6466ae8c286ac40a74ef7b471274e5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
