@@ -89,7 +89,7 @@ public class FlappyQueroStageController : MonoBehaviour
         int enemy = Random.Range(0, stageMoment);
         int randomY = Random.Range(-7, 7);
         Instantiate(
-            enemies[0],
+            enemies[enemy],
             new Vector3(40, randomY, 0),
             Quaternion.identity,
             this.transform.GetChild(0)

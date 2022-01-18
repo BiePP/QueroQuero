@@ -194,12 +194,12 @@ SpriteRenderer:
   m_SortingLayerID: 756993735
   m_SortingLayer: 3
   m_SortingOrder: 2
-  m_Sprite: {fileID: 784503592548007057, guid: 629bf73dbd24d3343827a80687342ee5, type: 3}
+  m_Sprite: {fileID: 3778949760644521018, guid: 27d45106cd916434fb79a3ca02ca02b8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -675,7 +675,7 @@ MonoBehaviour:
   BGTeleporter: {fileID: 640450929}
   enemies:
   - {fileID: 4901830425621684559, guid: dc6108bc93dcf8841904c9559822b173, type: 3}
-  - {fileID: 4901830425621684559, guid: dc6108bc93dcf8841904c9559822b173, type: 3}
+  - {fileID: 3090189431209995914, guid: afb3657ccd6ed5646aecad7f30c4096e, type: 3}
   - {fileID: 4901830425621684559, guid: dc6108bc93dcf8841904c9559822b173, type: 3}
   - {fileID: 4901830425621684559, guid: dc6108bc93dcf8841904c9559822b173, type: 3}
 --- !u!4 &541101246
@@ -884,7 +884,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.7232361}
+  m_Offset: {x: 0, y: 6.960184}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -895,7 +895,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 18.45073}
+  m_Size: {x: 1, y: 126.49519}
   m_EdgeRadius: 0
 --- !u!114 &640450931
 MonoBehaviour:
@@ -1127,12 +1127,12 @@ SpriteRenderer:
   m_SortingLayerID: 756993735
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3778949760644521018, guid: 629bf73dbd24d3343827a80687342ee5, type: 3}
+  m_Sprite: {fileID: 3778949760644521018, guid: 27d45106cd916434fb79a3ca02ca02b8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.6875, y: 1.125}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

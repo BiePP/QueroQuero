@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4901830425621684556}
   - component: {fileID: 7468933383135515826}
   m_Layer: 0
-  m_Name: Cardeal
+  m_Name: CardealFlappy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
