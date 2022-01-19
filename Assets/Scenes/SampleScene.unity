@@ -676,7 +676,7 @@ MonoBehaviour:
   enemies:
   - {fileID: 4901830425621684559, guid: dc6108bc93dcf8841904c9559822b173, type: 3}
   - {fileID: 3090189431209995914, guid: afb3657ccd6ed5646aecad7f30c4096e, type: 3}
-  - {fileID: 4901830425621684559, guid: dc6108bc93dcf8841904c9559822b173, type: 3}
+  - {fileID: 9033651073319475129, guid: c6cdb0fec61c4894499dd513885c9c20, type: 3}
   - {fileID: 4901830425621684559, guid: dc6108bc93dcf8841904c9559822b173, type: 3}
 --- !u!4 &541101246
 Transform:

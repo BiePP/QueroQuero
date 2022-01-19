@@ -94,6 +94,21 @@ public class FlappyQueroStageController : MonoBehaviour
             Quaternion.identity,
             this.transform.GetChild(0)
         );
-        
+            
+        /*-- Se for instanciado um rabo-de-palha... --*/
+        if(enemy == 2)
+        {
+            int newY;
+            if (randomY > 3f)
+                newY = -7;
+            else
+                newY = 7;
+            Instantiate(
+                enemies[enemy],
+                new Vector3(40, newY, 0),
+                Quaternion.identity,
+                this.transform.GetChild(0)
+            );
+        }
     }
 }
