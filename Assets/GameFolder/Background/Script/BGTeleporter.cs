@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BGTeleporter : MonoBehaviour
 {
-    [Tooltip("The original position in Y which every BG will be teleported \"ahead\" when it's time.")]
-    public float startingPosition;
+    [Tooltip("The original amount in Y which every BG will be teleported \"ahead\" when it's time.")]
+    public float sentPosition;
 
     
     public int stageMoment;
@@ -28,20 +28,20 @@ public class BGTeleporter : MonoBehaviour
     {      
         if (collision.CompareTag("BG"))
         {
-            collision.transform.position = new Vector2(startingPosition, collision.transform.position.y);
+            collision.transform.position = new Vector2(collision.transform.position.x + sentPosition, collision.transform.position.y);
             switch (stageMoment)
             {
                 case 1:
-                    collision.GetComponent<SpriteRenderer>().sprite = BG[Random.Range(1, 2)];
+                    collision.GetComponent<SpriteRenderer>().sprite = BG[Random.Range(1, 3)];
                     break;
                 case 2:
-                    collision.GetComponent<SpriteRenderer>().sprite = BG[Random.Range(2, 3)];
+                    collision.GetComponent<SpriteRenderer>().sprite = BG[Random.Range(2, 4)];
                     break;
                 case 3:
-                    collision.GetComponent<SpriteRenderer>().sprite = BG[Random.Range(4, 5)];
+                    collision.GetComponent<SpriteRenderer>().sprite = BG[Random.Range(3, 6)];
                     break;
                 case 4:
-                    collision.GetComponent<SpriteRenderer>().sprite = BG[Random.Range(5, 7)];
+                    collision.GetComponent<SpriteRenderer>().sprite = BG[Random.Range(6, 7)];
                     break;
             }
         }

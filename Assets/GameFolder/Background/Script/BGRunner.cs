@@ -7,11 +7,17 @@ public class BGRunner : MonoBehaviour
     public float timer = 0;
     public float velocity;
 
+    public Sprite[] BGStarter;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        foreach(Transform child in transform)
+        {
+            int randomBG = Random.Range(0, 2);
+            print(child.name + " BG should be = " + randomBG);
+            child.transform.GetComponent<SpriteRenderer>().sprite = BGStarter[randomBG];
+        }
     }
 
     // Update is called once per frame
