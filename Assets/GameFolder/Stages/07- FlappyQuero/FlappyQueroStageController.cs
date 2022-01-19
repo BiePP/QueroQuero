@@ -6,6 +6,7 @@ public class FlappyQueroStageController : MonoBehaviour
 {
     public float stageTimer;
     public float spawnerTimer;
+    public float spawnerNestTimer;
 
     //1- coxilhas
     //2- cerros
@@ -31,6 +32,7 @@ public class FlappyQueroStageController : MonoBehaviour
     {
         stageTimer += Time.deltaTime;
         spawnerTimer += Time.deltaTime;
+        spawnerNestTimer += Time.deltaTime;
 
         if(stageTimer > 60)
         {
@@ -74,6 +76,11 @@ public class FlappyQueroStageController : MonoBehaviour
                     spawnerTimer = 0;
                     InstantiateNewEnemy();
                 }
+                if(spawnerNestTimer >= 4f)
+                {
+                    spawnerNestTimer = 0;
+                    InstantiateNewNest();
+                }
                 break;
         }
     }
@@ -87,6 +94,10 @@ public class FlappyQueroStageController : MonoBehaviour
     private void InstantiateNewEnemy()
     {
         int enemy = Random.Range(0, stageMoment);
+        if(enemy == 3)
+        {
+            enemy = Random.Range(1, 3);
+        }
         int randomY = Random.Range(-7, 7);
         Instantiate(
             enemies[enemy],
@@ -110,5 +121,15 @@ public class FlappyQueroStageController : MonoBehaviour
                 this.transform.GetChild(0)
             );
         }
+    }
+
+    private void InstantiateNewNest()
+    {
+        Instantiate(
+            enemies[3],
+            new Vector3(40, -5, 0),
+            Quaternion.identity,
+            this.transform.GetChild(0)
+        );
     }
 }
