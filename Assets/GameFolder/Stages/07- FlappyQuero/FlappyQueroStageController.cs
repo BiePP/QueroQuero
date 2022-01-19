@@ -8,10 +8,11 @@ public class FlappyQueroStageController : MonoBehaviour
     public float spawnerTimer;
     public float spawnerNestTimer;
 
-    //1- coxilhas
+    //1- coxilhas e cerros
     //2- cerros
-    //3- proximidade de POA
-    //4- stage win (salgado filho)
+    //3- auto estrada
+    //4- proximidades de POA
+    //5- Salgado Filho
     public int stageMoment;
 
     [Tooltip("Added for allowing control of BG changes through stage moments by the Teleporter.")]
@@ -34,7 +35,11 @@ public class FlappyQueroStageController : MonoBehaviour
         spawnerTimer += Time.deltaTime;
         spawnerNestTimer += Time.deltaTime;
 
-        if(stageTimer > 60)
+        if(stageTimer > 90)
+        {
+            ChangeStageMoment(5);
+        }
+        else if(stageTimer > 60)
         {
             ChangeStageMoment(4);
         }

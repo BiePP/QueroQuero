@@ -642,13 +642,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageTimer: 0
   spawnerTimer: 0
+  spawnerNestTimer: 0
   stageMoment: 0
   BGTeleporter: {fileID: 640450929}
   enemies:
   - {fileID: 4901830425621684559, guid: dc6108bc93dcf8841904c9559822b173, type: 3}
   - {fileID: 3090189431209995914, guid: afb3657ccd6ed5646aecad7f30c4096e, type: 3}
   - {fileID: 9033651073319475129, guid: c6cdb0fec61c4894499dd513885c9c20, type: 3}
-  - {fileID: 4901830425621684559, guid: dc6108bc93dcf8841904c9559822b173, type: 3}
+  - {fileID: 2376033464337329364, guid: b693965a213e7b140bfeefc23da01e2c, type: 3}
 --- !u!4 &541101246
 Transform:
   m_ObjectHideFlags: 0
@@ -866,6 +867,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sentPosition: 80
+  active: 0
   stageMoment: 0
   BG:
   - {fileID: -7661706084100502280, guid: 87e455a18a77c594a9bc09d32a46d851, type: 3}
@@ -876,6 +878,7 @@ MonoBehaviour:
   - {fileID: 6328569160183313180, guid: 87e455a18a77c594a9bc09d32a46d851, type: 3}
   - {fileID: -8493096063792465181, guid: 87e455a18a77c594a9bc09d32a46d851, type: 3}
   - {fileID: -3086850565636153074, guid: 87e455a18a77c594a9bc09d32a46d851, type: 3}
+  finishLine: {fileID: 3826168239110580361, guid: bdb43268f8568d243a73827146459a07, type: 3}
 --- !u!1 &692077709
 GameObject:
   m_ObjectHideFlags: 0
