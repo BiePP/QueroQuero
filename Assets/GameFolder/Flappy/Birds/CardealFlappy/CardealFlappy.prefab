@@ -115,9 +115,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocityX: 0.02
-  maxY: 5.5
-  minY: -5.5
-  velocityY: 0.02
+  maxY: 6.5
+  minY: -6.5
+  velocityY: 0.025
   up: 1
 --- !u!50 &4901830425621684556
 Rigidbody2D:
