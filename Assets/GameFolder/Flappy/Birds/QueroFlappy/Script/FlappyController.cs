@@ -52,8 +52,10 @@ public class FlappyController : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
+            //necessário para evitar duas colisões com o mesmo pássaro
+            collision.GetComponent<Rigidbody2D>().Sleep();
+
             TakeDamage(1);
-            
         }
     }
 

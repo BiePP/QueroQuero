@@ -15,7 +15,6 @@ public class BGRunner : MonoBehaviour
         foreach(Transform child in transform)
         {
             int randomBG = Random.Range(0, 2);
-            print(child.name + " BG should be = " + randomBG);
             child.transform.GetComponent<SpriteRenderer>().sprite = BGStarter[randomBG];
         }
     }
@@ -32,8 +31,6 @@ public class BGRunner : MonoBehaviour
         {
             child.transform.position = new Vector2(child.transform.position.x - velocity, child.transform.position.y);
         }
-
-        //transform.position = new Vector2(transform.position.x - velocity, transform.position.y);
     }
 
 }
