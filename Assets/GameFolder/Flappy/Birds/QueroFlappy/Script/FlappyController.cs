@@ -14,12 +14,16 @@ public class FlappyController : MonoBehaviour
     bool alive;
 
     public Text healthCountText;
+    public Camera mainCamera;
+    private Animator camAnimator;
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+
+        camAnimator = mainCamera.GetComponent<Animator>();
 
         alive = true;
         healthCountText.text = life.ToString();
@@ -28,7 +32,7 @@ public class FlappyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1") || Input.GetButtonDown("Jump"))
+        if ((Input.GetButtonDown("Fire1") || Input.GetButtonDown("Jump")) && alive)
         {
             animator.Play("Flap", -1);
 
@@ -48,8 +52,8 @@ public class FlappyController : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            life--;
-            healthCountText.text = life.ToString();
+            TakeDamage(1);
+            
         }
     }
 
@@ -59,5 +63,13 @@ public class FlappyController : MonoBehaviour
         rb.gravityScale = 1.5f;
         yield return new WaitForSeconds(2f);
         Time.timeScale = 0;
+    }
+
+    private void TakeDamage(int damage)
+    {
+        life -= damage;
+        healthCountText.text = life.ToString();
+        camAnimator.Play("TakeDamage", -1);
+        animator.Play("TakeDamage", -1);
     }
 }
