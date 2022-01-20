@@ -111,6 +111,11 @@ public class FlappyQueroStageController : MonoBehaviour
                 }
                 break;
         }
+
+        if (!flappyController.alive)
+        {
+            StartGameOverScreen();
+        }
     }
 
     private void ChangeStageMoment(int stageMoment)
@@ -160,4 +165,13 @@ public class FlappyQueroStageController : MonoBehaviour
             this.transform.GetChild(0)
         );
     }
+
+    private void StartGameOverScreen() {
+        //MainCamera -> Canvas -> GameOverScreen
+        Transform gameOverScreen = flappyController.mainCamera.transform.GetChild(0).GetChild(0);
+
+        gameOverScreen.GetComponent<CanvasGroup>().alpha = 1;
+        gameOverScreen.GetComponent<CanvasGroup>().blocksRaycasts = true;
+    }
+
 }

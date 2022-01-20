@@ -26,7 +26,6 @@ public class BGRunner : MonoBehaviour
 
     private void FixedUpdate()
     {
-        timer += Time.deltaTime;
         foreach(Transform child in transform)
         {
             child.transform.position = new Vector2(child.transform.position.x - velocity, child.transform.position.y);
