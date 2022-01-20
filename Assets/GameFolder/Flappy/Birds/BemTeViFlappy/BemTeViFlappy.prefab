@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocityX: 0.05
-  velocityY: 0.005
+  velocityY: 0.0125
 --- !u!58 &2982510563836632468
 CircleCollider2D:
   m_ObjectHideFlags: 0

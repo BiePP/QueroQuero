@@ -416,7 +416,7 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 1
     m_MaxSize: 300
-    m_Alignment: 5
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
@@ -759,9 +759,11 @@ MonoBehaviour:
   spawnerTimer: 0
   spawnerNestTimer: 0
   stageMoment: 0
+  QueroFlappy: {fileID: 874509622}
   totalScoreText: {fileID: 356887893}
   totalScore: 0
   BGTeleporter: {fileID: 640450929}
+  spawnPositionX: 15
   enemies:
   - {fileID: 4901830425621684559, guid: dc6108bc93dcf8841904c9559822b173, type: 3}
   - {fileID: 3090189431209995914, guid: afb3657ccd6ed5646aecad7f30c4096e, type: 3}
@@ -1334,6 +1336,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 250
   life: 5
+  alive: 1
   healthCountText: {fileID: 1887406624}
   mainCamera: {fileID: 519420031}
 --- !u!50 &874509625

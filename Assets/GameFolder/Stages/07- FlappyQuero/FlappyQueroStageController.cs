@@ -25,7 +25,7 @@ public class FlappyQueroStageController : MonoBehaviour
     [Tooltip("Added for allowing control of BG changes through stage moments by the Teleporter.")]
     public Transform BGTeleporter;
     BGTeleporter BGTeleporterScript;
-
+    public int spawnPositionX;
     public Transform[] enemies;
 
     // Start is called before the first frame update
@@ -124,12 +124,12 @@ public class FlappyQueroStageController : MonoBehaviour
         int enemy = Random.Range(0, stageMoment);
         if(enemy == 3)
         {
-            enemy = Random.Range(1, 3);
+            enemy = Random.Range(0, 3);
         }
         int randomY = Random.Range(-7, 7);
         Instantiate(
             enemies[enemy],
-            new Vector3(40, randomY, 0),
+            new Vector3(spawnPositionX, randomY, 0),
             Quaternion.identity,
             this.transform.GetChild(0)
         );
@@ -144,7 +144,7 @@ public class FlappyQueroStageController : MonoBehaviour
                 newY = 7;
             Instantiate(
                 enemies[enemy],
-                new Vector3(40, newY, 0),
+                new Vector3(spawnPositionX, newY, 0),
                 Quaternion.identity,
                 this.transform.GetChild(0)
             );
@@ -155,7 +155,7 @@ public class FlappyQueroStageController : MonoBehaviour
     {
         Instantiate(
             enemies[3],
-            new Vector3(40, -5, 0),
+            new Vector3(spawnPositionX, -5, 0),
             Quaternion.identity,
             this.transform.GetChild(0)
         );

@@ -64,7 +64,7 @@ public class FlappyController : MonoBehaviour
         rb.velocity = Vector2.zero;
         rb.gravityScale = 1.5f;
         yield return new WaitForSeconds(2f);
-        Time.timeScale = 0;
+        Faint();
     }
 
     private void TakeDamage(int damage)
@@ -73,5 +73,13 @@ public class FlappyController : MonoBehaviour
         healthCountText.text = life.ToString();
         camAnimator.Play("TakeDamage", -1);
         animator.Play("TakeDamage", -1);
+    }
+
+    public void Faint()
+    {
+        life = 0;
+        healthCountText.text = life.ToString();
+        alive = false;
+        Time.timeScale = 0;
     }
 }

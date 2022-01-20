@@ -20,10 +20,9 @@ public class Trap : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            print("Colidiu com o player, fim do jogo!");
+            collision.GetComponent<FlappyController>().Faint();
             /*--GAME OVER*--*/
             //TODO não será game over, mas sim uma tela de restart
-            Time.timeScale = 0f;
         }
     }
 }
