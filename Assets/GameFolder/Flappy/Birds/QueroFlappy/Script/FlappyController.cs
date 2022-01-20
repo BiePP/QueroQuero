@@ -11,7 +11,7 @@ public class FlappyController : MonoBehaviour
     public float jumpForce;
 
     public int life;
-    bool alive;
+    public bool alive;
 
     public Text healthCountText;
     public Camera mainCamera;

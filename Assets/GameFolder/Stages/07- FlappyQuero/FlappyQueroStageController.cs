@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FlappyQueroStageController : MonoBehaviour
 {
@@ -15,6 +16,12 @@ public class FlappyQueroStageController : MonoBehaviour
     //5- Salgado Filho
     public int stageMoment;
 
+    public Transform QueroFlappy;
+    FlappyController flappyController;
+
+    public Text totalScoreText;
+    public int totalScore;
+
     [Tooltip("Added for allowing control of BG changes through stage moments by the Teleporter.")]
     public Transform BGTeleporter;
     BGTeleporter BGTeleporterScript;
@@ -26,6 +33,11 @@ public class FlappyQueroStageController : MonoBehaviour
     {
         stageMoment = 1;
         BGTeleporterScript = BGTeleporter.GetComponent<BGTeleporter>();
+
+        flappyController = QueroFlappy.GetComponent<FlappyController>();
+
+        totalScore = 0;
+
     }
 
     // Update is called once per frame
@@ -39,19 +51,30 @@ public class FlappyQueroStageController : MonoBehaviour
         {
             ChangeStageMoment(5);
         }
-        else if(stageTimer > 60)
+        else if(stageTimer > 60 && flappyController.alive)
         {
+            totalScore += ((int)(Time.deltaTime * 20f) + 1);
             ChangeStageMoment(4);
         }
-        else if(stageTimer > 40){
+        else if(stageTimer > 40 && flappyController.alive)
+        {
+            totalScore += ((int)(Time.deltaTime * 12f) + 1);
             ChangeStageMoment(3);
         }
-        else if(stageTimer > 20)
+        else if(stageTimer > 20 && flappyController.alive)
         {
+            totalScore += ((int)(Time.deltaTime * 6f) + 1);
             ChangeStageMoment(2);
         }
+        else if (flappyController.alive)
+        {
+            totalScore += (int)((Time.deltaTime * 2f) + 1);
+        }
 
-        /*--SPAWNS --*/
+        /*-- TOTAL SCORE --*/
+        totalScoreText.text = "Total: " + totalScore;
+
+        /*-- SPAWNS --*/
         switch (stageMoment)
         {
             case 1:
