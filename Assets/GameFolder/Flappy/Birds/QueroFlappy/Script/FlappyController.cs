@@ -57,6 +57,11 @@ public class FlappyController : MonoBehaviour
 
             TakeDamage(1);
         }
+
+        if (collision.CompareTag("GameOver"))
+        {
+            StartCoroutine(QueroQueroFell());
+        }
     }
 
     private IEnumerator QueroQueroFall()
@@ -64,6 +69,14 @@ public class FlappyController : MonoBehaviour
         rb.velocity = Vector2.zero;
         rb.gravityScale = 1.5f;
         yield return new WaitForSeconds(2f);
+        Faint();
+    }
+
+    private IEnumerator QueroQueroFell()
+    {
+        //must inform the "dead" state before the faint method so the plane can fly away on StageController
+        alive = false;
+        yield return new WaitForSeconds(1f);
         Faint();
     }
 

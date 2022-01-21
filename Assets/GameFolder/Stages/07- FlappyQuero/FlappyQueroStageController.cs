@@ -16,9 +16,11 @@ public class FlappyQueroStageController : MonoBehaviour
     //5- Salgado Filho
     public int stageMoment;
 
+    [Tooltip("Added for knowledge of the \"alive\" status of the Flappy Quero-Quero.")]
     public Transform QueroFlappy;
     FlappyController flappyController;
 
+    [Tooltip("Added for showing on screen changes made into the score.")]
     public Text totalScoreText;
     public int totalScore;
 
@@ -26,6 +28,11 @@ public class FlappyQueroStageController : MonoBehaviour
     public Transform BGTeleporter;
     BGTeleporter BGTeleporterScript;
     public int spawnPositionX;
+
+    [Tooltip("Added for allowing the plane to descent when it's time.")]
+    public Transform plane;
+    public Animator planeAnimator;
+
     public Transform[] enemies;
 
     // Start is called before the first frame update
@@ -35,6 +42,8 @@ public class FlappyQueroStageController : MonoBehaviour
         BGTeleporterScript = BGTeleporter.GetComponent<BGTeleporter>();
 
         flappyController = QueroFlappy.GetComponent<FlappyController>();
+
+        planeAnimator = plane.GetComponent<Animator>();
 
         totalScore = 0;
 
@@ -122,6 +131,10 @@ public class FlappyQueroStageController : MonoBehaviour
     {
         this.stageMoment = stageMoment;
         BGTeleporterScript.stageMoment = this.stageMoment;
+        if(stageMoment == 5)
+        {
+            planeAnimator.SetBool("land", true);
+        }
     }
 
     private void InstantiateNewEnemy()
@@ -167,9 +180,10 @@ public class FlappyQueroStageController : MonoBehaviour
     }
 
     private void StartGameOverScreen() {
+        planeAnimator.Play("Escape", -1);
+
         //MainCamera -> Canvas -> GameOverScreen
         Transform gameOverScreen = flappyController.mainCamera.transform.GetChild(0).GetChild(0);
-
         gameOverScreen.GetComponent<CanvasGroup>().alpha = 1;
         gameOverScreen.GetComponent<CanvasGroup>().blocksRaycasts = true;
     }

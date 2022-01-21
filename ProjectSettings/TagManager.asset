@@ -6,6 +6,7 @@ TagManager:
   tags:
   - BG
   - Enemy
+  - GameOver
   layers:
   - Default
   - TransparentFX
