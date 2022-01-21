@@ -184,8 +184,16 @@ public class FlappyQueroStageController : MonoBehaviour
 
         //MainCamera -> Canvas -> GameOverScreen
         Transform gameOverScreen = flappyController.mainCamera.transform.GetChild(0).GetChild(0);
-        gameOverScreen.GetComponent<CanvasGroup>().alpha = 1;
-        gameOverScreen.GetComponent<CanvasGroup>().blocksRaycasts = true;
+        CanvasGroup GOScreenCanvas = gameOverScreen.GetComponent<CanvasGroup>();
+        
+        StartCoroutine(StarGOScreenRaycast(GOScreenCanvas));
+    }
+
+    private IEnumerator StarGOScreenRaycast(CanvasGroup GOScreenCanvas)
+    {
+        GOScreenCanvas.alpha = 1;
+        yield return new WaitForSeconds(1f);
+        GOScreenCanvas.blocksRaycasts = true;
     }
 
 }
