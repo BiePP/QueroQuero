@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 9033651073319475129}
   - component: {fileID: 7100451463863810964}
+  - component: {fileID: 8758619908598122826}
   - component: {fileID: 144128365908193626}
   - component: {fileID: 1788411840768074253}
   - component: {fileID: 272703316287974970}
-  - component: {fileID: 4401817114830798333}
   m_Layer: 0
   m_Name: RaboDePalhaFlappy
   m_TagString: Enemy
@@ -86,6 +86,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8758619908598122826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3325862979771519930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30bf7ce814efb1d4597d5916a0b8c0a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  birdType: 2
+  triggered: 0
+  velocityX: 0.04
+  maxY: 0
+  minY: 0
+  velocityY: 0
+  up: 0
 --- !u!58 &144128365908193626
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -142,16 +161,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &4401817114830798333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3325862979771519930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3f34bced4407184cb5a7f4b866635fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  velocityX: 0.04

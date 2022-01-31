@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4901830425621684559}
   - component: {fileID: 4901830425621684558}
   - component: {fileID: 4901830425621684657}
-  - component: {fileID: 4901830425621684656}
+  - component: {fileID: 7951351012166569012}
   - component: {fileID: 4901830425621684556}
   - component: {fileID: 7468933383135515826}
   m_Layer: 0
@@ -102,7 +102,7 @@ CircleCollider2D:
   m_Offset: {x: 0.051462412, y: 0.2766109}
   serializedVersion: 2
   m_Radius: 0.51567674
---- !u!114 &4901830425621684656
+--- !u!114 &7951351012166569012
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,9 +111,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4901830425621684659}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95d104c47e80b9e468c818b63844b527, type: 3}
+  m_Script: {fileID: 11500000, guid: 30bf7ce814efb1d4597d5916a0b8c0a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  birdType: 0
+  triggered: 0
   velocityX: 0.02
   maxY: 6.5
   minY: -6.5

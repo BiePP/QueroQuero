@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9181531687454161817}
   - component: {fileID: 8761671938196549895}
   - component: {fileID: 9163461881343781384}
-  - component: {fileID: 3077656055181194552}
+  - component: {fileID: 9145314103232592112}
   m_Layer: 0
   m_Name: JoaoDeBarroFlappy
   m_TagString: Enemy
@@ -165,7 +165,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &3077656055181194552
+--- !u!114 &9145314103232592112
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -174,7 +174,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1153367696390881060}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a52c8913abd432647a387fe3a6f93b58, type: 3}
+  m_Script: {fileID: 11500000, guid: 30bf7ce814efb1d4597d5916a0b8c0a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  birdType: 3
+  triggered: 0
   velocityX: 0.02
+  maxY: 0
+  minY: 0
+  velocityY: 0
+  up: 0

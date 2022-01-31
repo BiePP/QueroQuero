@@ -38,6 +38,7 @@ public class FlappyQueroStageController : MonoBehaviour
     public AudioClip winningTheme;
 
     public Transform[] enemies;
+    private int enemyCounter;
 
     // Start is called before the first frame update
     void Start()
@@ -54,6 +55,7 @@ public class FlappyQueroStageController : MonoBehaviour
         audioCamera.loop = true;
 
         totalScore = 0;
+        enemyCounter = 0;
 
     }
 
@@ -148,18 +150,20 @@ public class FlappyQueroStageController : MonoBehaviour
 
     private void InstantiateNewEnemy()
     {
+        enemyCounter++;
         int enemy = Random.Range(0, stageMoment);
         if(enemy == 3)
         {
             enemy = Random.Range(0, 3);
         }
         int randomY = Random.Range(-7, 7);
-        Instantiate(
+        Transform bird = Instantiate(
             enemies[enemy],
             new Vector3(spawnPositionX, randomY, 0),
             Quaternion.identity,
             this.transform.GetChild(0)
         );
+        bird.name = bird.name + " - Enemy " + enemyCounter;
             
         /*-- Se for instanciado um rabo-de-palha... --*/
         if(enemy == 2)
@@ -169,23 +173,32 @@ public class FlappyQueroStageController : MonoBehaviour
                 newY = -7;
             else
                 newY = 7;
-            Instantiate(
+
+            enemyCounter++;
+
+            bird = Instantiate(
                 enemies[enemy],
                 new Vector3(spawnPositionX, newY, 0),
                 Quaternion.identity,
                 this.transform.GetChild(0)
             );
+
+            bird.name = bird.name + " - Enemy " + enemyCounter;
         }
     }
 
     private void InstantiateNewNest()
     {
-        Instantiate(
+        enemyCounter++;
+        
+        Transform bird = Instantiate(
             enemies[3],
             new Vector3(spawnPositionX, -5, 0),
             Quaternion.identity,
             this.transform.GetChild(0)
         );
+
+        bird.name = bird.name + " - Enemy " + enemyCounter;
     }
 
     private void StartGameOverScreen() {

@@ -1729,6 +1729,7 @@ MonoBehaviour:
   jumpForce: 250
   life: 5
   alive: 1
+  isTriggered: 0
   healthCountText: {fileID: 1887406624}
   mainCamera: {fileID: 519420031}
   ASWing: {fileID: 874509627}

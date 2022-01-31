@@ -13,6 +13,8 @@ public class FlappyController : MonoBehaviour
     public int life;
     public bool alive;
 
+    public bool isTriggered;
+
     public Text healthCountText;
     public Camera mainCamera;
     private Animator camAnimator;
@@ -57,10 +59,15 @@ public class FlappyController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy") && !godMode)
+        if (collision.CompareTag("Enemy")
+            && !collision.GetComponent<EnemyFlappyController>().triggered
+            && !godMode
+            && alive)
         {
             //necessário para evitar duas colisões com o mesmo pássaro
-            collision.GetComponent<Rigidbody2D>().Sleep();
+            //collision.GetComponent<Rigidbody2D>().Sleep();
+            collision.GetComponent<EnemyFlappyController>().triggered = true;
+            print(collision.name + " hits Quero-Quero and damaged");
 
             TakeDamage(1);
         }

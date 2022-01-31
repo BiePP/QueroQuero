@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3090189431209995914}
   - component: {fileID: 6729191474266470581}
-  - component: {fileID: 510653496418426544}
+  - component: {fileID: 2328212491104131362}
   - component: {fileID: 2982510563836632468}
   - component: {fileID: 7214189478361216312}
   - component: {fileID: -1381392512679398648}
@@ -86,7 +86,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &510653496418426544
+--- !u!114 &2328212491104131362
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,11 +95,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 982617357407345628}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f663f7bc0f3f584da757c0fe583b42e, type: 3}
+  m_Script: {fileID: 11500000, guid: 30bf7ce814efb1d4597d5916a0b8c0a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  birdType: 1
+  triggered: 0
   velocityX: 0.05
+  maxY: 0
+  minY: 0
   velocityY: 0.0125
+  up: 0
 --- !u!58 &2982510563836632468
 CircleCollider2D:
   m_ObjectHideFlags: 0
