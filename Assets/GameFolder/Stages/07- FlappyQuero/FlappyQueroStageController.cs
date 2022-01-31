@@ -31,7 +31,11 @@ public class FlappyQueroStageController : MonoBehaviour
 
     [Tooltip("Added for allowing the plane to descent when it's time.")]
     public Transform plane;
-    public Animator planeAnimator;
+    Animator planeAnimator;
+
+    public Camera mainCamera;
+    AudioSource audioCamera;
+    public AudioClip winningTheme;
 
     public Transform[] enemies;
 
@@ -44,6 +48,10 @@ public class FlappyQueroStageController : MonoBehaviour
         flappyController = QueroFlappy.GetComponent<FlappyController>();
 
         planeAnimator = plane.GetComponent<Animator>();
+
+        audioCamera = mainCamera.GetComponent<AudioSource>();
+        audioCamera.Play();
+        audioCamera.loop = true;
 
         totalScore = 0;
 
@@ -134,6 +142,7 @@ public class FlappyQueroStageController : MonoBehaviour
         if(stageMoment == 5)
         {
             planeAnimator.SetBool("land", true);
+            StartCoroutine(StopStageMusic());
         }
     }
 
@@ -194,6 +203,13 @@ public class FlappyQueroStageController : MonoBehaviour
         GOScreenCanvas.alpha = 1;
         yield return new WaitForSeconds(1f);
         GOScreenCanvas.blocksRaycasts = true;
+    }
+
+    private IEnumerator StopStageMusic()
+    {
+        audioCamera.loop = false;
+        yield return new WaitForSeconds(8f);
+        audioCamera.Stop();
     }
 
 }

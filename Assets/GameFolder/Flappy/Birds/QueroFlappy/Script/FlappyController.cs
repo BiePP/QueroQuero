@@ -17,6 +17,11 @@ public class FlappyController : MonoBehaviour
     public Camera mainCamera;
     private Animator camAnimator;
 
+    public AudioSource ASWing;
+    public AudioSource ASQuero;
+
+    public bool godMode;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +40,9 @@ public class FlappyController : MonoBehaviour
         if ((Input.GetButtonDown("Fire1") || Input.GetButtonDown("Jump")) && alive)
         {
             animator.Play("Flap", -1);
+            ASWing.Play();
 
+            
             rb.velocity = Vector2.zero;
             rb.AddForce(new Vector2(0, jumpForce));
         }
@@ -50,7 +57,7 @@ public class FlappyController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy"))
+        if (collision.CompareTag("Enemy") && !godMode)
         {
             //necessário para evitar duas colisões com o mesmo pássaro
             collision.GetComponent<Rigidbody2D>().Sleep();
@@ -86,6 +93,8 @@ public class FlappyController : MonoBehaviour
         healthCountText.text = life.ToString();
         camAnimator.Play("TakeDamage", -1);
         animator.Play("TakeDamage", -1);
+
+        ASQuero.Play();
     }
 
     public void Faint()
