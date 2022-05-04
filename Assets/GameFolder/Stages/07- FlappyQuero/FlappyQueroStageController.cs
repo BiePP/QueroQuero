@@ -16,6 +16,13 @@ public class FlappyQueroStageController : MonoBehaviour
     //5- Salgado Filho
     public int stageMoment;
 
+    public enum StageMode
+    {
+        StoryMode,
+        EnduranceMode,
+    }
+    public StageMode stageMode;
+
     [Tooltip("Added for knowledge of the \"alive\" status of the Flappy Quero-Quero.")]
     public Transform QueroFlappy;
     FlappyController flappyController;
@@ -57,6 +64,18 @@ public class FlappyQueroStageController : MonoBehaviour
         totalScore = 0;
         enemyCounter = 0;
 
+        if(stageMode == StageMode.StoryMode)
+        {
+            totalScoreText.GetComponent<Text>().alignment = TextAnchor.MiddleRight;
+            totalScoreText.text = "Objetivo: Persiga o pássaro gigante azul.";
+        }
+        else
+        {
+            Color planeColor = plane.GetComponent<SpriteRenderer>().color;
+            plane.GetComponent<SpriteRenderer>().color = new Color(planeColor.r, planeColor.g, planeColor.b, 0);
+            totalScoreText.GetComponent<Text>().alignment = TextAnchor.MiddleLeft;
+        }
+
     }
 
     // Update is called once per frame
@@ -66,7 +85,7 @@ public class FlappyQueroStageController : MonoBehaviour
         spawnerTimer += Time.deltaTime;
         spawnerNestTimer += Time.deltaTime;
 
-        if(stageTimer > 90)
+        if(stageTimer > 90 && stageMode == StageMode.StoryMode)
         {
             ChangeStageMoment(5);
         }
@@ -90,8 +109,12 @@ public class FlappyQueroStageController : MonoBehaviour
             totalScore += (int)((Time.deltaTime * 2f) + 1);
         }
 
-        /*-- TOTAL SCORE --*/
-        totalScoreText.text = "Total: " + totalScore;
+        /*-- TOTAL SCORE AND QUEST --*/
+        if(stageMode == StageMode.EnduranceMode)
+        { 
+            totalScoreText.text = "Total: " + totalScore;
+        }
+        
 
         /*-- SPAWNS --*/
         switch (stageMoment)
