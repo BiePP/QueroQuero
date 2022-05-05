@@ -30,6 +30,7 @@ public class FlappyQueroStageController : MonoBehaviour
     [Tooltip("Added for showing on screen changes made into the score.")]
     public Text totalScoreText;
     public int totalScore;
+    private Text finalTotalScore;
 
     [Tooltip("Added for allowing control of BG changes through stage moments by the Teleporter.")]
     public Transform BGTeleporter;
@@ -42,6 +43,9 @@ public class FlappyQueroStageController : MonoBehaviour
 
     public Camera mainCamera;
     AudioSource audioCamera;
+    private Transform gameOverScreen;
+    private CanvasGroup GOScreenCanvas;
+
     public AudioClip winningTheme;
 
     public Transform[] enemies;
@@ -64,10 +68,21 @@ public class FlappyQueroStageController : MonoBehaviour
         totalScore = 0;
         enemyCounter = 0;
 
-        if(stageMode == StageMode.StoryMode)
+        //MainCamera -> Canvas -> GameOverScreen
+        gameOverScreen = flappyController.mainCamera.transform.GetChild(0).GetChild(0);
+        GOScreenCanvas = gameOverScreen.GetComponent<CanvasGroup>();
+        
+        finalTotalScore = GOScreenCanvas.transform.GetChild(0).GetComponent<Text>();
+
+        if (stageMode == StageMode.StoryMode)
         {
             totalScoreText.GetComponent<Text>().alignment = TextAnchor.MiddleRight;
             totalScoreText.text = "Objetivo: Persiga o pássaro gigante azul.";
+
+            finalTotalScore.text = "Não Desista!";
+            finalTotalScore.transform.GetChild(0).GetComponent<Text>().text = "O quero-quero caiu!";
+
+            Destroy(GOScreenCanvas.transform.GetChild(1).gameObject);
         }
         else
         {
@@ -225,20 +240,26 @@ public class FlappyQueroStageController : MonoBehaviour
     }
 
     private void StartGameOverScreen() {
-        planeAnimator.Play("Escape", -1);
-
-        //MainCamera -> Canvas -> GameOverScreen
-        Transform gameOverScreen = flappyController.mainCamera.transform.GetChild(0).GetChild(0);
-        CanvasGroup GOScreenCanvas = gameOverScreen.GetComponent<CanvasGroup>();
-        
-        StartCoroutine(StarGOScreenRaycast(GOScreenCanvas));
+        planeAnimator.Play("Escape", -1);      
+        StartCoroutine(StarGOScreenRaycast());
     }
 
-    private IEnumerator StarGOScreenRaycast(CanvasGroup GOScreenCanvas)
+    private IEnumerator StarGOScreenRaycast()
     {
+        if(stageMode == StageMode.EnduranceMode)
+        {
+            //get Child 0 from Game Over Canvas (Text, points) and attribute totalScore to it
+            finalTotalScore.text = totalScore.ToString();
+        }      
+
+        //Shows Screen Game Over
         GOScreenCanvas.alpha = 1;
+
+        //Wait some seconds because otherwise the player may hit the buttons without notice
         yield return new WaitForSeconds(1f);
         GOScreenCanvas.blocksRaycasts = true;
+
+        
     }
 
     private IEnumerator StopStageMusic()
