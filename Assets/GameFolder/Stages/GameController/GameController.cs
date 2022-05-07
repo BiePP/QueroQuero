@@ -3,8 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class OpeningController : MonoBehaviour
+public class GameController : MonoBehaviour
 {
+    public enum GameMode
+    {
+        StoryMode,
+        EnduranceMode,
+    }
+    public GameMode gameMode;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,8 +29,4 @@ public class OpeningController : MonoBehaviour
         
     }
 
-    public void StartDemo()
-    {
-        SceneManager.LoadScene("FlappyStage");
-    }
 }

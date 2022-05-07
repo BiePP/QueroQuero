@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class FlappyQueroStageController : MonoBehaviour
 {
+    private GameController GC;
+
     public float stageTimer;
     public float spawnerTimer;
     public float spawnerNestTimer;
@@ -54,6 +56,19 @@ public class FlappyQueroStageController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //choose the game mode
+        GC = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+
+        if(GC.gameMode == GameController.GameMode.StoryMode)
+        {
+            stageMode = StageMode.StoryMode;
+        }
+        else
+        {
+            stageMode = StageMode.EnduranceMode;
+        }
+
+        //prepares the Stage
         stageMoment = 1;
         BGTeleporterScript = BGTeleporter.GetComponent<BGTeleporter>();
 
@@ -268,5 +283,7 @@ public class FlappyQueroStageController : MonoBehaviour
         yield return new WaitForSeconds(8f);
         audioCamera.Stop();
     }
+
+    
 
 }
