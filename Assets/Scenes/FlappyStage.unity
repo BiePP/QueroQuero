@@ -2233,6 +2233,7 @@ GameObject:
   - component: {fileID: 984890365}
   - component: {fileID: 984890364}
   - component: {fileID: 984890368}
+  - component: {fileID: 984890369}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2334,6 +2335,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7dfe1290c9385a24a8cc2e70db0679d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sc: {fileID: 541101245}
+  nickname: 
+--- !u!114 &984890369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984890363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a213fecae03736640ae728dcb1ab11c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1164178827
@@ -2917,7 +2932,19 @@ MonoBehaviour:
       m_Calls: []
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 984890368}
+        m_TargetAssemblyTypeName: MenuButtons, Assembly-CSharp
+        m_MethodName: GetNick
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_CaretColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_CustomCaretColor: 0
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
