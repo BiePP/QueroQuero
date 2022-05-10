@@ -5,22 +5,11 @@ using Mono.Data.Sqlite; //necessary to connect with SQLite
 
 public class DBConnection : MonoBehaviour
 {
-    protected string dbShortName = "WannaWanna";
-    protected string dbName = "URI=file:WannaWanna.db";
+    protected static string dbShortName = "WannaWanna";
+    protected static string dbName = "URI=file:WannaWanna.db";
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        CreateDB();
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    protected void CreateDB()
+    public static void CreateDB()
     {
         //Creates the Database connection
         using(var connection = new SqliteConnection(dbName))

@@ -15,6 +15,7 @@ public class GameController : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
+        DBConnection.CreateDB();
     }
 
     // Start is called before the first frame update

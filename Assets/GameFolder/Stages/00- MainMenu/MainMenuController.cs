@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI; //to deal with text into Canvas
 
 public class MainMenuController : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class MainMenuController : MonoBehaviour
 
     private Transform highScoreScreen;
     private CanvasGroup highScoreCanvasGroup;
+
+    private bool gameStart = false;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +36,11 @@ public class MainMenuController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(!gameStart && Input.anyKeyDown)
+        {
+            gameStart = true;
+            ShowMainMenuOptions();
+        }
     }
 
     private void HideAnyCanvas()
@@ -61,10 +68,29 @@ public class MainMenuController : MonoBehaviour
         HideAnyCanvas();
         highScoreCanvasGroup.alpha = 1;
         highScoreCanvasGroup.blocksRaycasts = true;
+        GetHighScore();
     }
 
     public void StartDemoEndurance()
     {
         SceneManager.LoadScene("FlappyStage");
+    }
+
+    private void GetHighScore()
+    {
+        List<List<string>> list = FlappyQueries.Display10thBestScore();
+
+        
+
+        //super: 1- hi
+        //2- namelist 3- scorelist 
+        int i = 0;
+        foreach(List<string> item in list)
+        {
+            highScoreScreen.transform.GetChild(2).GetChild(i).GetComponent<Text>().text = item[0];
+            highScoreScreen.transform.GetChild(3).GetChild(i).GetComponent<Text>().text = item[1];
+            i++;
+        }
+        
     }
 }

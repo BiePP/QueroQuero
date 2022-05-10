@@ -8,7 +8,7 @@ public class MenuButtons : MonoBehaviour
     public FlappyQueroStageController sc;
     private int totalScore;
 
-    public string nickname;
+    private string nickname;
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +43,11 @@ public class MenuButtons : MonoBehaviour
 
     private void SaveScore()
     {
+        if(nickname == null || nickname == "" || nickname == " ") //withou values or empty values by the player
+        {
+            nickname = "Queroquero";
+        }
         totalScore = sc.GetComponent<FlappyQueroStageController>().totalScore;
-        this.GetComponent<FlappyQueries>().AddScore(totalScore, nickname);
+        FlappyQueries.AddScore(totalScore, nickname);
     }
 }
