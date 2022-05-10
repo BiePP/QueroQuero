@@ -8,6 +8,7 @@ public class FlappyQueries : DBConnection
 {
 
     private static string tableName = "flappy_ranking";
+    private static int maxRows = 10;
 
     private static string GetDateTime()
     {
@@ -17,34 +18,64 @@ public class FlappyQueries : DBConnection
     public static void AddScore(int totalScore, string nickname)
     {
         string datetime = GetDateTime();
+        //stabilish connection
         using (var connection = new SqliteConnection(dbName))
         {
             connection.Open();
 
-            using(var command = connection.CreateCommand())
+            //creates the first query (a search for the number of entries into the table)
+            using(var commandSearch = connection.CreateCommand())
             {
-                command.CommandText = "INSERT INTO " + tableName + " "
-                    + "(score, nick, timestamp) VALUES ("
-                    + totalScore + ", "
-                    + "'" + nickname + "', "
-                    + "'" + datetime + "'"
-                    + ");";
-                command.ExecuteNonQuery();
+                commandSearch.CommandText = "SELECT COUNT(1) FROM " + tableName + ";";
+                using (IDataReader reader = commandSearch.ExecuteReader())
+                {
+                    //tests if the number of entries is bigger than the maxRows permitted (default 10)
+                    if (int.Parse(reader[0].ToString()) >= maxRows)
+                    {
+                        //TRUE: update the "last one" with lesser points
+                        using (var command = connection.CreateCommand())
+                        {
+                            command.CommandText = "UPDATE " + tableName + " "
+                            + "SET score = '" + totalScore + "', "
+                            + "nick = '" + nickname + "', "
+                            + "timestamp = '" + datetime + "'"
+                            + "WHERE score = (SELECT MIN(score) FROM " + tableName + ");";
+                            command.ExecuteNonQuery();
+                        }
+                    }
+                    else
+                    {
+                        //FALSE can entry a new row, insert the new score
+                        using (var command = connection.CreateCommand())
+                        {
+                            command.CommandText = "INSERT INTO " + tableName + " "
+                            + "(score, nick, timestamp) VALUES ("
+                            + totalScore + ", "
+                            + "'" + nickname + "', "
+                            + "'" + datetime + "'"
+                            + ");";
+                            command.ExecuteNonQuery();
+                        }
+                    }
+                    reader.Close();   
+                }
             }
-
             connection.Close();
         }
     }
 
     public static List<List<string>> Display10thBestScore()
     {
+        //Creates to lists: results (list of scores) and score (nick and points)
         List<List<string>> results = new List<List<string>>();
         List<string> score = new List<string>();
 
+        //stabilish connection
         using (var connection = new SqliteConnection(dbName))
         {
             connection.Open();
 
+            //uses the command for reading
             using(var command = connection.CreateCommand())
             {
                 command.CommandText = "SELECT score, nick FROM " + tableName + " "
@@ -53,16 +84,15 @@ public class FlappyQueries : DBConnection
                     + ";";
                 using (IDataReader reader = command.ExecuteReader())
                 {
+                    //foreach result...
                     while (reader.Read())
                     {
-                        /*Debug.Log("Score: " + reader["score"] + "\t"
-                            + "Nick: " + reader["nick"] + "\t"
-                            + "Timestamp: " + reader["timestamp"]);*/
                         results.Add(new List<string> { 
                             reader["nick"].ToString(),
                             reader["score"].ToString()
                         });
                     }
+                    reader.Close();
                 }
             }
             connection.Close();
