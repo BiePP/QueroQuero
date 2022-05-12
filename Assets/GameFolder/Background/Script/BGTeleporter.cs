@@ -11,6 +11,8 @@ public class BGTeleporter : MonoBehaviour
     public bool active;
     
     public int stageMoment;
+    private int currentStgMom;
+    private Transform BGBefore;
 
     public Sprite[] BG;
 
@@ -25,7 +27,7 @@ public class BGTeleporter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -36,19 +38,33 @@ public class BGTeleporter : MonoBehaviour
             switch (stageMoment)
             {
                 case 1:
-                    collision.GetComponent<SpriteRenderer>().sprite = BG[Random.Range(1, 3)];
+                    collision.GetComponent<SpriteRenderer>().sprite = BG[Random.Range(0, 2)];
+                    currentStgMom = stageMoment;
                     break;
                 case 2:
-                    collision.GetComponent<SpriteRenderer>().sprite = BG[Random.Range(2, 4)];
+                    collision.GetComponent<SpriteRenderer>().sprite = BG[Random.Range(1, 4)];
+                    currentStgMom = stageMoment;
                     break;
                 case 3:
-                    collision.GetComponent<SpriteRenderer>().sprite = BG[Random.Range(3, 6)];
+                    if(stageMoment != currentStgMom)
+                    {
+                        collision.GetComponent<SpriteRenderer>().sprite = BG[4];
+                    }
+                    else
+                    {
+                        collision.GetComponent<SpriteRenderer>().sprite = BG[Random.Range(5, 7)];
+                    }
+                    currentStgMom = stageMoment;
                     break;
                 case 4:
-                    collision.GetComponent<SpriteRenderer>().sprite = BG[Random.Range(6, 7)];
+                    collision.GetComponent<SpriteRenderer>().sprite = BG[Random.Range(6, 8)];
+                    BGBefore = collision.transform;
+                    currentStgMom = stageMoment;
                     break;
                 case 5:
-                    collision.GetComponent<SpriteRenderer>().sprite = BG[7];
+                    BGBefore.GetComponent<SpriteRenderer>().sprite = BG[7];
+                    collision.GetComponent<SpriteRenderer>().sprite = BG[8];
+                    currentStgMom = stageMoment;
                     Instantiate(
                         finishLine,
                         new Vector3(collision.transform.position.x, collision.transform.position.y, 0),

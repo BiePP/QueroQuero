@@ -26,6 +26,9 @@ TextureImporter:
   - first:
       213: -3086850565636153074
     second: BG Flappy-Sheet_7
+  - first:
+      213: -7320396150762946491
+    second: BG Flappy-Sheet_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -143,7 +146,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 256
+        y: 512
         width: 256
         height: 256
       alignment: 0
@@ -164,7 +167,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 256
-        y: 256
+        y: 512
         width: 256
         height: 256
       alignment: 0
@@ -185,7 +188,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 512
-        y: 256
+        y: 512
         width: 256
         height: 256
       alignment: 0
@@ -205,7 +208,7 @@ TextureImporter:
       name: BG Flappy-Sheet_3
       rect:
         serializedVersion: 2
-        x: 768
+        x: 0
         y: 256
         width: 256
         height: 256
@@ -226,8 +229,8 @@ TextureImporter:
       name: BG Flappy-Sheet_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 256
+        y: 256
         width: 256
         height: 256
       alignment: 0
@@ -247,8 +250,8 @@ TextureImporter:
       name: BG Flappy-Sheet_5
       rect:
         serializedVersion: 2
-        x: 256
-        y: 0
+        x: 512
+        y: 256
         width: 256
         height: 256
       alignment: 0
@@ -268,7 +271,7 @@ TextureImporter:
       name: BG Flappy-Sheet_6
       rect:
         serializedVersion: 2
-        x: 512
+        x: 0
         y: 0
         width: 256
         height: 256
@@ -289,7 +292,7 @@ TextureImporter:
       name: BG Flappy-Sheet_7
       rect:
         serializedVersion: 2
-        x: 768
+        x: 256
         y: 0
         width: 256
         height: 256
@@ -302,6 +305,27 @@ TextureImporter:
       bones: []
       spriteID: e012b80f3cd4925d0800000000000000
       internalID: -3086850565636153074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BG Flappy-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54043aa6c7ab86a90800000000000000
+      internalID: -7320396150762946491
       vertices: []
       indices: 
       edges: []
