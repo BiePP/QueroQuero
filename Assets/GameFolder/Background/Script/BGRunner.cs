@@ -12,6 +12,7 @@ public class BGRunner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //foreach child in Skin GameObject (foreach GO background)
         foreach(Transform child in transform)
         {
             int randomBG = Random.Range(0, 2);
