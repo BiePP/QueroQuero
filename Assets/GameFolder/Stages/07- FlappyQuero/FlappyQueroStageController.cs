@@ -39,6 +39,10 @@ public class FlappyQueroStageController : MonoBehaviour
     BGTeleporter BGTeleporterScript;
     public int spawnPositionX;
 
+    [Tooltip("Added for allowing control the stopping moment of the BG when Quero-quero faints.")]
+    public Transform BGRunner;
+    BGRunner BGRunnerScript;
+
     [Tooltip("Added for allowing the plane to descent when it's time.")]
     public Transform plane;
     Animator planeAnimator;
@@ -71,6 +75,7 @@ public class FlappyQueroStageController : MonoBehaviour
         //prepares the Stage
         stageMoment = 1;
         BGTeleporterScript = BGTeleporter.GetComponent<BGTeleporter>();
+        BGRunnerScript = BGRunner.GetComponent<BGRunner>();
 
         flappyController = QueroFlappy.GetComponent<FlappyController>();
 
@@ -109,7 +114,7 @@ public class FlappyQueroStageController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         stageTimer += Time.deltaTime;
         spawnerTimer += Time.deltaTime;
@@ -255,8 +260,14 @@ public class FlappyQueroStageController : MonoBehaviour
     }
 
     private void StartGameOverScreen() {
-        planeAnimator.Play("Escape", -1);      
-        StartCoroutine(StarGOScreenRaycast());
+        planeAnimator.Play("Escape", -1);
+        //If Game Over Screen didn't shown up yet...
+        if(GOScreenCanvas.alpha != 1)
+        {
+            BGRunnerScript.active = false;
+            StartCoroutine(StarGOScreenRaycast());
+        }
+        
     }
 
     private IEnumerator StarGOScreenRaycast()
@@ -269,12 +280,22 @@ public class FlappyQueroStageController : MonoBehaviour
 
         //Shows Screen Game Over
         GOScreenCanvas.alpha = 1;
-
         //Wait some seconds because otherwise the player may hit the buttons without notice
+        //yield return WaitForUnscaledSeconds(1f);
         yield return new WaitForSeconds(1f);
         GOScreenCanvas.blocksRaycasts = true;
 
         
+    }
+
+    private static IEnumerator WaitForUnscaledSeconds(float time)
+    {
+        float ttl = 0;
+        while(time > ttl)
+        {
+            ttl += Time.unscaledDeltaTime;
+            yield return null;
+        }
     }
 
     private IEnumerator StopStageMusic()

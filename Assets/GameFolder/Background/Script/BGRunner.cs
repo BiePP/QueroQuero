@@ -8,10 +8,12 @@ public class BGRunner : MonoBehaviour
     public float velocity;
 
     public Sprite[] BGStarter;
+    public bool active;
 
     // Start is called before the first frame update
     void Start()
     {
+        active = true;
         //foreach child in Skin GameObject (foreach GO background)
         foreach(Transform child in transform)
         {
@@ -27,10 +29,14 @@ public class BGRunner : MonoBehaviour
 
     private void FixedUpdate()
     {
-        foreach(Transform child in transform)
+        if (active)
         {
-            child.transform.position = new Vector2(child.transform.position.x - velocity, child.transform.position.y);
+            foreach (Transform child in transform)
+            {
+                child.transform.position = new Vector2(child.transform.position.x - velocity, child.transform.position.y);
+            }
         }
+        
     }
 
 }

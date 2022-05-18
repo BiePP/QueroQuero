@@ -116,10 +116,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   birdType: 0
   triggered: 0
-  velocityX: 0.02
+  velocityX: 0.075
   maxY: 6.5
   minY: -6.5
-  velocityY: 0.025
+  velocityY: 0.1
   up: 1
 --- !u!50 &4901830425621684556
 Rigidbody2D:

@@ -35,10 +35,10 @@ public class EnemyFlappyController : MonoBehaviour
                     velocityY = Random.Range(velocityY, velocityY * 1.3f);
                     break;
                 case 3:
-                    velocityY = Random.Range(velocityY, velocityY * 1.7f);
+                    velocityY = Random.Range(velocityY * 1.3f, velocityY * 1.5f);
                     break;
                 case 4:
-                    velocityY = Random.Range(velocityY, velocityY * 2f);
+                    velocityY = Random.Range(velocityY * 1.4f, velocityY * 1.65f);
                     break;
             }
         }
@@ -61,8 +61,8 @@ public class EnemyFlappyController : MonoBehaviour
         triggered = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    // FixedUpdate is called once per defined time
+    void FixedUpdate()
     {
         switch (birdType)
         {

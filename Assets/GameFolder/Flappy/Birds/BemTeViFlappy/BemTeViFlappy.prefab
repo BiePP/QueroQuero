@@ -100,10 +100,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   birdType: 1
   triggered: 0
-  velocityX: 0.05
+  velocityX: 0.14
   maxY: 0
   minY: 0
-  velocityY: 0.0125
+  velocityY: 0.045
   up: 0
 --- !u!58 &2982510563836632468
 CircleCollider2D:

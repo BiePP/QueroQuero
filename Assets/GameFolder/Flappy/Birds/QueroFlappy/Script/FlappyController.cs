@@ -109,6 +109,5 @@ public class FlappyController : MonoBehaviour
         life = 0;
         healthCountText.text = life.ToString();
         alive = false;
-        Time.timeScale = 0;
     }
 }

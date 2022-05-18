@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   birdType: 2
   triggered: 0
-  velocityX: 0.04
+  velocityX: 0.075
   maxY: 0
   minY: 0
   velocityY: 0
